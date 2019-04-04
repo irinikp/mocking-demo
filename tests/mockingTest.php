@@ -1,28 +1,12 @@
 <?php
-namespace Demo;
+namespace Tests;
 
-require_once 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
+use Demo\Alpha;
+use Demo\Beta;
+use Demo\CatApiIntegrator;
 use \Mockery;
-
-class Alpha
-{
-    protected $beta;
-
-    public function __construct(Beta $b)
-    {
-        $this->beta = $b;
-    }
-
-    public function myMethod()
-    {
-        return $this->beta->doSomething('hello', 'world');
-    }
-}
-
-class Beta
-{
-}
 
 class TestAlpha extends \PHPUnit\Framework\TestCase
 {
@@ -41,5 +25,11 @@ class TestAlpha extends \PHPUnit\Framework\TestCase
         $output = $alpha->myMethod();
 
         $this->assertEquals('I did it', $output);
+    }
+
+    public function test_cat()
+    {
+        $service = new CatApiIntegrator();
+        $this->assertTrue(true);
     }
 }
