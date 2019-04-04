@@ -7,14 +7,27 @@ require __DIR__ . '/../env.php';
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
+/**
+ * Class CatApiIntegrator
+ * @package Demo
+ */
 class CatApiIntegrator
 {
     const BASE_URL  = "https://api.thecatapi.com/v1/";
     const CLASS_URL = "images/";
 
+    /**
+     * @var Client
+     */
     protected $client;
+    /**
+     * @var array
+     */
     protected $headers;
 
+    /**
+     * CatApiIntegrator constructor.
+     */
     public function __construct()
     {
         $this->client  = new Client([

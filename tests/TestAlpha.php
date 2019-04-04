@@ -1,12 +1,12 @@
 <?php
+
 namespace Tests;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 use Demo\Alpha;
 use Demo\Beta;
-use Demo\CatApiIntegrator;
-use \Mockery;
+use Mockery;
 
 class TestAlpha extends \PHPUnit\Framework\TestCase
 {
@@ -25,11 +25,5 @@ class TestAlpha extends \PHPUnit\Framework\TestCase
         $output = $alpha->myMethod();
 
         $this->assertEquals('I did it', $output);
-    }
-
-    public function test_cat()
-    {
-        $service = new CatApiIntegrator();
-        $this->assertTrue(true);
     }
 }
